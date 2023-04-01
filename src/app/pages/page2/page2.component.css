@@ -1,0 +1,102 @@
+
+button {
+    width: 48px;
+    height: 48px;
+    background-color: aqua;
+    border-radius: 50px;
+    border: none;
+    background: rgba(255, 255, 255, 0.1);
+    margin-left: 10px;
+  
+}
+
+button.active {
+    background-color: var(--yellow); 
+}
+
+.btnBlock{
+    margin-left: -10px;
+    display: flex;
+    justify-content: center;
+}
+
+input  {
+    width: 338px;
+    height: 182px;
+    background-color: var(--sombre);
+    margin-left: 26px;
+    border: none;
+    padding-bottom: 100px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    color: var(--white);
+    padding-left: 17px;
+}
+
+input input::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+p {
+    font-style: normal;
+    font-weight:700;
+    color: var(--white);
+}
+
+.left {
+    margin-left: 26px;
+}
+
+.text , .left {
+    
+    margin-top: 37px;
+    margin-bottom: 28px;
+}
+.text2 , .left {
+    margin-top: 28px;
+    margin-bottom: 28px;
+}
+
+.text3 {
+    margin-top: 28px;
+    margin-left: 64px;
+    margin-bottom: 140px;
+}
+
+.btnCheck {
+    width: 25px;
+    height: 25px;
+    border-radius: 50px;
+    border: none;
+    background-color:rgba(255, 255, 255, 0.1);
+    margin-left: 26px;
+    margin-right: 15px;
+    margin-bottom: 130px;
+}
+.btnCheck.active {
+background-color: var(--pink);
+}
+
+
+.checkblock {
+  display: flex;
+  margin-top: 20px;
+}
+
+.bigBtn {
+width: 248px;
+height: 48px;
+border-radius: 30px;
+border: none;
+background-color: var(--gris);
+text-align: center;
+color: var(--white);
+font-size: 16px;
+font-weight: 700;
+line-height: 20px;
+margin-top: 32px;
+margin-left: 70px;
+}   
+
+

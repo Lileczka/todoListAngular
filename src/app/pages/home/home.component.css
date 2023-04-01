@@ -1,0 +1,85 @@
+.container {
+    margin-top: -70px;
+}
+.deuxListes {
+    margin-top: -270px;
+    margin-left: 26px;
+}
+
+
+p {
+    font-size: 20px;
+    font-style: normal;
+    font-weight:700;
+    color: var(--white);
+    margin-top: 302px;
+    margin-left: 35px;
+    margin-bottom: 35px;
+}
+
+.tacheUrgente {
+    margin-top: -280px;
+}
+
+ul li {
+    color: var(--white);
+    list-style-type: none;
+    display: flex;
+    margin-left: 10px;
+    margin-top: 15px;
+  
+}
+
+
+button {
+    width: 248px;
+    height: 48px;
+    border-radius: 30px;
+    border: none;
+    background-color: var(--bleu);
+    text-align: center;
+    color: var(--white);
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 20px;
+    margin-top: 32px;
+    margin-left: 70px;
+}
+
+.rond {
+    position: relative;
+    width: 23px;
+    height: 23px;
+    margin-right: 20px;
+    
+  }
+  
+  /* cacher  */
+  .rond input[type="checkbox"] {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  /* creer nouveau rond */
+  .rond:after {
+    content: "";
+    display: inline-block;
+    width: 23px;
+    height: 23px;
+    border: 2px solid var(--white);
+    border-radius: 50px;
+    
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+
+
+
+
+
+
+

@@ -1,0 +1,28 @@
+<section>
+    <p class="text left">Sélectionnez votre catégorie* :</p>
+     <div class="btnBlock">
+         <button [class.active]="todo.isActive" 
+         *ngFor="let todo of todos" 
+          (click)= "btnActive(todo)">
+          {{ todo.content }}</button>
+     </div>
+     <p class="text2 left">Quelle tâche avez vous à effectuer* ?</p>
+     
+     <input [(ngModel)]= "newTask" 
+            [placeholder]="activeTodo ? '' : 'Exemple : Faire les courses'"
+            [disabled]="!activeTodo" 
+            (input)="activerBtnFullInput()"/>
+            
+     <div class="checkblock">
+   <button class="btnCheck" [ngClass]="{'active': isActive}" (click)="btnCheckActive()">
+     <img *ngIf="isActive" src= "../../../assets/icones/Validation.png"/>
+   </button>
+     <p>La tâche est urgente ⚠️</p>
+     </div>
+     <button class="bigBtn"
+ [ngStyle]="{ 'background-color': isInputEmpty ? 'var(--bleu)' : '' }" 
+ (click)="saveTask()" 
+ [disabled]="!isInputEmpty">{{ label }}</button>
+  
+ </section>
+ 

@@ -1,0 +1,13 @@
+.container {
+    height: 70px;
+    border-bottom: 1px solid var(--white);
+}
+h2 {
+    font-size: 20px;
+    font-style: normal;
+    font-weight:700;
+    color: var(--white);
+    line-height: 25px ;
+    padding-top: 35px;
+    padding-left: 26px;
+}
