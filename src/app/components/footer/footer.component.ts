@@ -16,7 +16,7 @@ export class FooterComponent {
     ) {
 //s'inscrire aux événements du router
     this.router.events.subscribe(event => {
-// NavigationEnd est une classe qui représente la fin de la navigation de l'utilisateur dans l'application.
+// NavigationEnd est une classe qui représente la fin de la navigation dans l'application.
 //verifie si l'objet event est une instance de la classe NavigationEnd     
 if (event instanceof NavigationEnd) {
   switch (event.url) {

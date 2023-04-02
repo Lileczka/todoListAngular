@@ -29,9 +29,7 @@ export class HomeComponent {
 });
 }
  
- 
- 
-    //passer la valeur de showPage à true pour cacher la partie selection
+//passer la valeur de showPage à true pour cacher la partie selection
 afficherSelectedTask() {
   this.showPage = !this.showPage;
   localStorage.setItem('showPage', JSON.stringify(this.showPage));
@@ -46,9 +44,7 @@ goToPage3() {
     this.router.navigate(['/page3']); 
   }
 
-  
-  
-  removeTask(task: {id: number, task: string}, listType: string): void {
+removeTask(task: {id: number, task: string}, listType: string): void {
     this.todoService.removeTask(task, listType);
     // Navigate to page 3
      this.goToPage3();

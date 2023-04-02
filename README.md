@@ -1,27 +1,112 @@
 # TodoAngular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.2.
+Ce projet Angular est une application de liste de tâches qui permet à l'utilisateur de créer et de gérer des tâches à réaliser. L'application a deux listes : les tâches urgentes et les tâches ordinaires. L'utilisateur peut céer les taches, marquer les tâches comme étant terminées et les mettre dans historique ou les corriger/ré-rediger.
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Author
 
-## Code scaffolding
+[@Lileczka](https://github.com/Lileczka)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Installation
 
-## Running unit tests
+Installation du projet :
+ 
+ ```bash
+  npm new todoAngular
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Installation depondences dans
+app.module.ts :  
+@angular/core
+@angular/router
+rxjs
+NavigationEnd@angular/router
+FormsModule@angular/forms
 
-## Running end-to-end tests
+Exécutez l'application :  
+ 
+ ```bash
+  npm serve -o
+```
+#### Description project
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+ 1.Pages 
+---------------------------------
+* L'application a trois pages: 
+-- page HomeComponent: --
+* affiche 2 listes des tâches: urgents et ordinaires (non urgente) 
+* un bouton à côté de chaque tache pour envoyer la tache vers historique. 
+--page 2Component-- 
+* permet de créer une nouvelle tâche. En cliquant sur un de 6 bouton de sélection on choisi le caractère de la tache , puis à l'aide un autre button on peut choisir si la tâche est urgente ou non. En cliquant sur le bouton  "Valider une tache" , la tâche est ajoutée à la liste appropriée et la navigation se fait vers HomeComponent.
+--page 3Component historique-- 
+* affiche une liste de taches en ordre croissant 
+* un bouton à côté de chaque tache pour envoyer la tache à la page home sur sa place initiale sur des listes appropriés.
 
-## Further help
+2.Mock 
+-------------------
+Cette partie de code est une implémentation en TypeScript de la structure de données pour une liste de tâches (ITodo). Elle définit également un ensemble de constantes ITODOS représentant une liste de tâches prédéfinies.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+La structure de données ITodo est composée des éléments suivants:
+
+- id : identifiant unique de la tâche
+content : description de la tâche
+- type : type de la tâche, qui doit appartenir à l'une des catégories suivantes : shopping, health, work, bills, cleaning, other.
+isUrgent : indicateur booléen pour spécifier si la tâche est urgente ou non
+- isActive : indicateur booléen pour spécifier si la tâche est active ou non
+- doneDate : date à laquelle la tâche a été marquée comme terminée, ou null si la tâche n'a pas encore été terminée.
+
+ Utilisation
+_________________________________________________________
+
+pour créer une liste de tâches à partir de la structure de données ITodo, et pour manipuler cette liste en ajoutant, supprimant ou modifiant des tâches. Les constantes ITODOS peuvent être utilisées comme point de départ pour une liste de tâches prédéfinies, ou modifiées pour créer des listes de tâches personnalisées.
+
+Utilisation des  méthodes pour manipuler la liste de tâches: 
+la méthode push() : pour ajouter une tâche à la liste
+
+
+  3.Service 
+-------------------
+* L'application utilise un service TodoService pour gérer les tâches.
+* Il dispose des méthodes suivantes :
+afficherTaches()
+- une méthode qui permet afficher ou masquer la seconde partie de la page.
+saveTask(task: string, isUrgent: boolean).          
+- une méthode qui permet de sauvegarder une nouvelle tâche dans la liste appropriée (isUrgent ou isOrdinary) et de la stocker dans le stockage local.
+removeTask(task: {id: number, task: string}, listType: string).          
+- une méthode qui permet de supprimer une tâche de la liste appropriée (isUrgent ou isOrdinary) et de la stocker dans le tableau historyList du stockage local.
+removeTask(task: {id: number, task: string}, listType: string)           
+- une méthode qui permet de supprimer une tâche de la liste appropriée (isUrgent ou isOrdinary) et de la stocker dans le tableau historyList du stockage local.
+
+ 4.Local storage 
+-------------------
+Le stockage local est une fonctionnalité des navigateurs web qui permet aux applications web de stocker des données localement sur l'appareil d'un utilisateur. Ces données peuvent être récupérées et utilisées par l'application web même après que l'utilisateur a fermé le navigateur ou navigué loin du site web.
+Pour définir une valeur dans le stockage local :
+***
+localStorage.setItem('clé', 'valeur');
+***
+Pour récupérer une valeur depuis le stockage local :
+***
+const valeur = localStorage.getItem('clé');
+***
+Pour supprimer une valeur du stockage local :
+***
+localStorage.removeItem('clé');
+***
+
+##### Ce que j'ai appris:
+
+Css: flex: 1;
+
+Tri des tâches par ordre croissant de date: 
+nomVariable.sort((a: {date: Date}, b: {date: Date}) => new Date(a.date).getTime() - new Date(b.date).getTime());
+Inscription aux événements du router:
+ this.router.events.subscribe event => {...}      NavigationEnd, une classe qui représente la fin de la navigation dans l'application.
+Verification si l'objet event est une instance de la classe NavigationEnd
+if (event instanceof NavigationEnd) {...}
+
+###### Organisation du projet
+
+[Trello](https://trello.com/b/0xD1iheS/to-do-list-simplon)
+

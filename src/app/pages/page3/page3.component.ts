@@ -25,10 +25,9 @@ export class Page3Component {
     } else {
       this.historyList = historyList;
     }
-    
   }
 
-    ngOnInit(): void {}
+  ngOnInit(): void {}
   
   //aller à la 2ème partie de la page home 
   goPageHome(): void {
