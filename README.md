@@ -1,6 +1,6 @@
 # TodoAngular
 
-Ce projet Angular est une application de liste de tâches qui permet à l'utilisateur de créer et de gérer des tâches à réaliser. L'application a deux listes : les tâches urgentes et les tâches ordinaires. L'utilisateur peut céer les taches, marquer les tâches comme étant terminées et les mettre dans historique ou les corriger/ré-rediger.
+Ce projet Angular est une application de liste de tâches qui permet à l'utilisateur de créer et de gérer des tâches à réaliser. L'application a deux listes : les tâches urgentes et les tâches non urgentes. L'utilisateur peut céer les taches, marquer les tâches comme étant terminées et les mettre dans historique ou les corriger/ré-rediger.
 
 
 ## Author
@@ -34,12 +34,16 @@ Exécutez l'application :
 
  1.Pages 
 ---------------------------------
-* L'application a trois pages: 
+L'application a trois pages: 
+
 -- page HomeComponent: --
-* affiche 2 listes des tâches: urgents et ordinaires (non urgente) 
+* 1 ère section permet naviguer vers la page 2
+* 2 ème section affiche 2 listes des tâches: urgents et ordinaires (non urgente) 
 * un bouton à côté de chaque tache pour envoyer la tache vers historique. 
+
 --page 2Component-- 
 * permet de créer une nouvelle tâche. En cliquant sur un de 6 bouton de sélection on choisi le caractère de la tache , puis à l'aide un autre button on peut choisir si la tâche est urgente ou non. En cliquant sur le bouton  "Valider une tache" , la tâche est ajoutée à la liste appropriée et la navigation se fait vers HomeComponent.
+
 --page 3Component historique-- 
 * affiche une liste de taches en ordre croissant 
 * un bouton à côté de chaque tache pour envoyer la tache à la page home sur sa place initiale sur des listes appropriés.
@@ -63,11 +67,12 @@ _________________________________________________________
 pour créer une liste de tâches à partir de la structure de données ITodo, et pour manipuler cette liste en ajoutant, supprimant ou modifiant des tâches. Les constantes ITODOS peuvent être utilisées comme point de départ pour une liste de tâches prédéfinies, ou modifiées pour créer des listes de tâches personnalisées.
 
 Utilisation des  méthodes pour manipuler la liste de tâches: 
-la méthode push() : pour ajouter une tâche à la liste
+la méthode push : pour ajouter une tâche à la liste
 
 
   3.Service 
 -------------------
+
 * L'application utilise un service TodoService pour gérer les tâches.
 * Il dispose des méthodes suivantes :
 afficherTaches()
@@ -83,17 +88,17 @@ removeTask(task: {id: number, task: string}, listType: string)
 -------------------
 Le stockage local est une fonctionnalité des navigateurs web qui permet aux applications web de stocker des données localement sur l'appareil d'un utilisateur. Ces données peuvent être récupérées et utilisées par l'application web même après que l'utilisateur a fermé le navigateur ou navigué loin du site web.
 Pour définir une valeur dans le stockage local :
-***
+**
 localStorage.setItem('clé', 'valeur');
-***
+**
 Pour récupérer une valeur depuis le stockage local :
 ***
 const valeur = localStorage.getItem('clé');
 ***
 Pour supprimer une valeur du stockage local :
-***
+****
 localStorage.removeItem('clé');
-***
+****
 
 ##### Ce que j'ai appris:
 

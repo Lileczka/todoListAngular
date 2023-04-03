@@ -73,9 +73,13 @@ p {
     margin-left: 26px;
     margin-right: 15px;
     margin-bottom: 130px;
+    background-repeat: no-repeat;
+    background-position: center;
+  
 }
 .btnCheck.active {
 background-color: var(--pink);
+background-image: url(../../../assets/icones/Validation.png);
 }
 
 

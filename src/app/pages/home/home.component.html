@@ -10,8 +10,12 @@
        <ul class="scrollable-list">
         <li *ngFor="let task of urgentList">
           <label class="rond">
-          <input  type="checkbox"  (click)="removeTask(task, 'urgentList')"/>
-          </label>{{ task.task }}</li>
+           <input  type="checkbox"  (click)="removeTask(task, 'urgentList')"/>
+          </label>
+          <a [routerLink]="['/page2']"   
+             [queryParams]="{task: task.task}"
+             (click)="getmodifiedTask(task.task)">{{ task.task }}</a>
+        </li>
        </ul >
        <div class="tacheUrgente">
       <p>🌸 Tâches non urgentes</p>
@@ -19,7 +23,9 @@
         <li *ngFor="let task of ordinaryList">
           <label class="rond">
             <input  type="checkbox"  (click)="removeTask(task, 'ordinaryList')" />
-            </label>{{ task.task }}</li>
+            </label>
+            <a [routerLink]="['/page2']" [queryParams]="{task: task.task}">{{ task.task }}</a>
+          </li>
         </ul>
       </div>
       </div>

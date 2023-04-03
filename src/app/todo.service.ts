@@ -52,8 +52,6 @@ export class TodoService {
       this.isOrdinary = this.isOrdinary.filter(t => t.id !== task.id);
       localStorage.setItem('ordinaryList', JSON.stringify(this.isOrdinary));
     }
-    // Ajouter la tâche enlevée à historyList
-    this.addToHistoryList(task);
   }
 
   addToHistoryList(task: {id: number, task: string}): void {

@@ -1,14 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ITodo, ITODOS } from 'src/app/todo.mock';
 import { TodoService } from 'src/app/todo.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-page2',
   templateUrl: './page2.component.html',
   styleUrls: ['./page2.component.css']
 })
-export class Page2Component {
+export class Page2Component implements OnInit {
   todos: ITodo[] = ITODOS;
   isActive: boolean = false;
   activeTodo: ITodo | null = null;
@@ -18,13 +19,27 @@ export class Page2Component {
   showPage = false;
   
   label= "Valider une tache";
-   
+  
+  modifiedTask: string = '';
+  
   constructor(public todoService: TodoService, 
-    private router: Router) {
+    private router: Router,
+    private route: ActivatedRoute
+    ) {
      
      // garantir que tous les éléments soient désactivés par défaut avant interaction avec eux
     this.todos.forEach(todo => todo.isActive = false);
   }
+  
+  //afficher task à modifier
+  ngOnInit(): void {
+    const task = this.route.snapshot.queryParamMap.get('task');
+    if (task) {
+      //afficher task sans icone
+      this.newTask = task.split(" ")[1]; 
+    }
+  }
+  
 
   btnActive(todo: ITodo) {
     if (this.activeTodo === todo) {
@@ -73,5 +88,4 @@ saveTask(): void {
     const showPage = storedShowPage ? JSON.parse(storedShowPage) : false;
     this.router.navigate(['/'], { queryParams: { showPage: showPage } });
   }
-  
 }

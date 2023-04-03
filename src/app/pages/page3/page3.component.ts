@@ -39,7 +39,7 @@ export class Page3Component {
   }
 
   goPageFirstHome() {
-    this.router.navigate(['/']);
+    this.router.navigate(['/page2']);
   }
   
   moveFromHistory(task: { id: number, task: string }) {
