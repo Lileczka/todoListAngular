@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { ITODOS, ITodo } from 'src/app/todo.mock';
 import { TodoService } from 'src/app/todo.service';
 
@@ -58,6 +58,14 @@ removeTask(task: {id: number, task: string}, listType: string): void {
   
   getmodifiedTask(task: string) {
     this.modifiedTask = task;
+    
+    let queryParams: NavigationExtras = {
+      queryParams: {
+        task: this.modifiedTask
+      }
+    };
+    // Naviguer vers la page 2 avec le task comme paramètre de requête
+    this.router.navigate(['/page2'], queryParams); 
+  return; 
   }
-  
-}
+  }

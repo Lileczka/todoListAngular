@@ -12,9 +12,7 @@
           <label class="rond">
            <input  type="checkbox"  (click)="removeTask(task, 'urgentList')"/>
           </label>
-          <a [routerLink]="['/page2']"   
-             [queryParams]="{task: task.task}"
-             (click)="getmodifiedTask(task.task)">{{ task.task }}</a>
+          <a (click)="getmodifiedTask(task.task)">{{ task.task }}</a>
         </li>
        </ul >
        <div class="tacheUrgente">
@@ -24,7 +22,7 @@
           <label class="rond">
             <input  type="checkbox"  (click)="removeTask(task, 'ordinaryList')" />
             </label>
-            <a [routerLink]="['/page2']" [queryParams]="{task: task.task}">{{ task.task }}</a>
+            <a (click)="getmodifiedTask(task.task)">{{ task.task }}</a>
           </li>
         </ul>
       </div>

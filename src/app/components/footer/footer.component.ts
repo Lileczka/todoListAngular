@@ -30,6 +30,7 @@ if (event instanceof NavigationEnd) {
       this.isPage2 = true;
       this.isPage3 = false;
       break;
+      
     case '/page3':
       this.isPage1 = false;
       this.isPage2 = false;
@@ -56,14 +57,18 @@ goToHomePage() {
   this.router.navigate(['/']);
   this.goPageHome()
   
+  
 }
 goToPage2() {
- this.router.navigateByUrl('/page2');
- 
+  this.router.navigate(['/page2']);
+  
 }
 
 goToPage3() {
-  this.router.navigateByUrl('/page3');
+  this.router.navigate(['/page3']);
+ 
 }
+
+
 }
 

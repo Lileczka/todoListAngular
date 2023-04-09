@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 import { ITodo, ITODOS } from 'src/app/todo.mock';
 import { TodoService } from 'src/app/todo.service';
 import { ActivatedRoute } from '@angular/router';
@@ -21,11 +21,10 @@ export class Page2Component implements OnInit {
   label= "Valider une tache";
   
   modifiedTask: string = '';
-  
-  constructor(public todoService: TodoService, 
+ 
+constructor(public todoService: TodoService, 
     private router: Router,
-    private route: ActivatedRoute
-    ) {
+    private route: ActivatedRoute) {
      
      // garantir que tous les éléments soient désactivés par défaut avant interaction avec eux
     this.todos.forEach(todo => todo.isActive = false);
@@ -35,11 +34,20 @@ export class Page2Component implements OnInit {
   ngOnInit(): void {
     const task = this.route.snapshot.queryParamMap.get('task');
     if (task) {
-      //afficher task sans icone
-      this.newTask = task.split(" ")[1]; 
+      // afficher task sans icone
+      this.newTask = task.split(" ")[1];
+    
     }
+    this.activerBtnFullInput();
+    this.btnCheckActive();
+    this.goToPage2();
   }
   
+  
+  goToPage2() {
+    this.router.navigate(['/page2']);
+    
+  }
 
   btnActive(todo: ITodo) {
     if (this.activeTodo === todo) {
@@ -51,6 +59,7 @@ export class Page2Component implements OnInit {
       this.activeTodo = todo;
     }
   }
+  
 
 //activer un bouton lorsque on saisi du texte dans un champ d'entrée (input).
 activerBtnFullInput() {

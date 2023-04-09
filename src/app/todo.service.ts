@@ -14,7 +14,10 @@ export class TodoService {
   isOrdinary: {id: number, task: string}[] = [];
   nextId: number = 1;
    historyList: {id: number, task: string}[] = [];
-  constructor() {}
+   
+   private isPage2 = false;
+   
+   constructor() {}
   
   //afficher 2ème partie de la page home
   afficherTaches() {
@@ -96,6 +99,13 @@ if (task.isUrgent) {
       taskElement.remove();
     }
     this.addPageHome({id: task.id, task: task.task, isUrgent: task.isUrgent});
+  }
+  setIsPage1Active(value: boolean): void {
+    this.isPage2 = value;
+  }
+
+  getIsPage1Active(): boolean {
+    return this.isPage2;
   }
 
 }
