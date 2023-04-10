@@ -56,8 +56,22 @@ removeTask(task: {id: number, task: string}, listType: string): void {
      this.todoService.addToHistoryList(task);
   }
   
-  getmodifiedTask(task: string) {
-    this.modifiedTask = task;
+  getmodifiedTask(task: string): void {
+    // Supprimer la tâche de la liste 'urgentList'
+  const indexUrgent = this.todoService.isUrgent.findIndex(t => t.task === task);
+  if (indexUrgent !== -1) {
+    this.todoService.isUrgent.splice(indexUrgent, 1);
+    localStorage.setItem('urgentList', JSON.stringify(this.todoService.isUrgent));
+  }
+ // Supprimer la tâche de la liste 'ordinaryList'
+ const indexOrdinary = this.todoService.isOrdinary.findIndex(t => t.task === task);
+ if (indexOrdinary !== -1) {
+   this.todoService.isOrdinary.splice(indexOrdinary, 1);
+   localStorage.setItem('ordinaryList', JSON.stringify(this.todoService.isOrdinary));
+ }
+ 
+  
+ this.modifiedTask = task;
     
     let queryParams: NavigationExtras = {
       queryParams: {
@@ -66,6 +80,7 @@ removeTask(task: {id: number, task: string}, listType: string): void {
     };
     // Naviguer vers la page 2 avec le task comme paramètre de requête
     this.router.navigate(['/page2'], queryParams); 
-  return; 
+    return; 
   }
+
   }

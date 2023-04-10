@@ -1,7 +1,7 @@
 <section>
     <p class="text left">Sélectionnez votre catégorie* :</p>
      <div class="btnBlock">
-         <button [class.active]="todo.isActive || modifiedTask === todo.content"
+         <button [class.active]="todo.isActive "
          [ngClass]="{'active': modifiedTask === todo.content}" 
          *ngFor="let todo of todos" 
           (click)= "btnActive(todo)">
