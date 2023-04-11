@@ -48,9 +48,11 @@ constructor(public todoService: TodoService,
   const taskContent = task.split(" ")[0];
   // mettre emoji dans local storage
   localStorage.setItem('taskContent', taskContent); 
-  
-  
-  // Activer le bouton selecteur
+    
+    
+
+   
+// Activer le bouton selecteur
 if (taskContent) {
   this.modifiedTask = taskContent;
   this.todos.forEach(todo => {
@@ -68,14 +70,12 @@ if (taskContent) {
     }
   });
 }
-  }
+}
   this.activerBtnFullInput();
-    if (this.newTask) {
-      this.newTask = this.newTask.trim();
-    }
+    
     this.goToPage2();
+    
   }
-  
   
   goToPage2() {
     this.router.navigate(['/page2']);
@@ -103,8 +103,8 @@ if (taskContent) {
      this.newTask = '';
      this.isActive = false;
  } 
-
-    console.log('Liste urgente:');
+ 
+  console.log('Liste urgente:');
   this.todoService.isUrgent.forEach(task => {
     console.log(`Tâche ${task.id}: ${task.task}`);
   });
@@ -118,13 +118,14 @@ if (taskContent) {
   } 
 //activer un bouton lorsque on saisi du texte dans un champ d'entrée (input).
 activerBtnFullInput() {
-  this.isInputEmpty = this.newTask.trim().length > 0;
+  this.isInputEmpty = this.newTask?.trim().length > 0;
   }
 
   //buton selection isurgent
 btnCheckActive() {
     this.isActive = !this.isActive;
   }
+  
 
 //recuperer la valeur true de showPage pour changer l'affichage de la page1
   goPageHome(): void {

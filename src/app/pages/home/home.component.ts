@@ -72,15 +72,16 @@ removeTask(task: {id: number, task: string}, listType: string): void {
  
   
  this.modifiedTask = task;
-    
-    let queryParams: NavigationExtras = {
+  
+ let queryParams: NavigationExtras = {
       queryParams: {
-        task: this.modifiedTask
+      task: this.modifiedTask
       }
     };
     // Naviguer vers la page 2 avec le task comme paramètre de requête
     this.router.navigate(['/page2'], queryParams); 
     return; 
   }
+ }
 
-  }
+  

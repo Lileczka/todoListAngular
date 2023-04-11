@@ -100,13 +100,7 @@ if (task.isUrgent) {
     }
     this.addPageHome({id: task.id, task: task.task, isUrgent: task.isUrgent});
   }
-  setIsPage1Active(value: boolean): void {
-    this.isPage2 = value;
-  }
-
-  getIsPage1Active(): boolean {
-    return this.isPage2;
-  }
+  
 
 }
   
