@@ -6,6 +6,7 @@
   </section>
   <ng-container *ngIf="showPage" style="display:none">
       <div class= "deuxListes">
+        <ng-container *ngIf="urgentList.length > 0">
         <p>⚠️ Tâche urgentes</p>
        <ul class="scrollable-list">
         <li *ngFor="let task of urgentList">
@@ -14,8 +15,10 @@
           </label>
           <a (click)="getmodifiedTask(task.task)">{{ task.task }}</a>
         </li>
-       </ul >
+       </ul>
+      </ng-container>
        <div class="tacheUrgente">
+        <ng-container *ngIf="ordinaryList.length > 0">
       <p>🌸 Tâches non urgentes</p>
       <ul class="scrollable-list">
         <li *ngFor="let task of ordinaryList">
@@ -25,6 +28,7 @@
             <a (click)="getmodifiedTask(task.task)">{{ task.task }}</a>
           </li>
         </ul>
+      </ng-container>
       </div>
       </div>
   </ng-container> 
